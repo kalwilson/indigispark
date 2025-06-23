@@ -1,0 +1,35 @@
+# Node modules (both client and server)
+node_modules/
+**/node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+/dist
+/build
+**/dist/
+**/build/
+
+# Vite cache
+.vite
+
+# Environment variables files
+.env
+.env.*.local
+
+# Mac OS system files
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
