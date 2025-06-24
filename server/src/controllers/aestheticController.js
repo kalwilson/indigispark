@@ -16,6 +16,8 @@ export const getAesthetic = async (req, res) => {
       } else {
         aestheticData = getAestheticByMood(vibe);
       }
+
+      return res.json({ aestheticData });
     } catch (error) {
       console.error('Static error in aestheticController:', error);
       return res.status(400).json({ error: error.message });
@@ -23,7 +25,7 @@ export const getAesthetic = async (req, res) => {
   }
 
   const prompt = `Based on the keywords: "${keywords}" and the vibe "${vibe}", describe a matching brand aesthetic. Include:
-- A color palette (names, not hex)
+- A color palette (names, and their hex codes)
 - Visual symbols or motifs
 - Art or design style references (like cozy zine, anime realism, formline, vaporwave, etc)
 Use soft and supportive tone, short bullet points.`;
