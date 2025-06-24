@@ -26,9 +26,7 @@ export const generateName = async (req, res) => {
       messages: [{ role: 'user', content: prompt }],
     });
 
-    const namesData = response.data.choices[0].message.content
-      .trim()
-      .split('\n');
+    const namesData = response.choices[0].message.content.trim().split('\n');
 
     res.json({ namesData });
   } catch (error) {

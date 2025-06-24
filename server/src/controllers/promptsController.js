@@ -5,10 +5,9 @@ export const analyzePrompts = async (req, res) => {
   const { purpose, goals, values, type = 'healer', mode = 'ai' } = req.body;
 
   // === Static Mode ===
-
   if (mode === 'static') {
     try {
-      const summary = getStaticSummary(type);
+      const summary = await getStaticSummary(type);
 
       return res.json({ summary });
     } catch (error) {
@@ -18,20 +17,20 @@ export const analyzePrompts = async (req, res) => {
   }
 
   // === AI Mode ===
-
-  const prompt = `Based on the following information from an Indigenous creator, generate a short brand summary using warm, supportive language: 
+  try {
+    const prompt = `Based on the following information from an Indigenous creator, generate a short brand summary using warm, supportive language: 
   Purpose: ${purpose}
   Goals: ${goals}
   Values: ${values}
   Focus on emotional impact, authenticity, and creative vision.`;
 
-  try {
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [{ role: 'user', content: prompt }],
     });
 
-    const summary = response.data.choices[0].message.content.trim();
+    const summary =
+      response.choices[0]?.message?.content?.trim() || 'No summary generated.';
 
     res.json({ summary });
   } catch (error) {
