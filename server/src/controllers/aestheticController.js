@@ -7,15 +7,14 @@ import {
 export const getAesthetic = async (req, res) => {
   const { vibe, keywords = '', mode = 'ai', staticMode = 'byMood' } = req.body;
 
+  // === Static Mode ===
+
   if (mode === 'static') {
     try {
-      let aestheticData;
-
-      if (staticMode === 'random') {
-        aestheticData = getRandomAesthetic();
-      } else {
-        aestheticData = getAestheticByMood(vibe);
-      }
+      let aestheticData =
+        staticMode === 'random'
+          ? getRandomAesthetic()
+          : getAestheticByMood(vibe);
 
       return res.json({ aestheticData });
     } catch (error) {
@@ -24,11 +23,22 @@ export const getAesthetic = async (req, res) => {
     }
   }
 
-  const prompt = `Based on the keywords: "${keywords}" and the vibe "${vibe}", describe a matching brand aesthetic. Include:
-- A color palette (names, and their hex codes)
-- Visual symbols or motifs
-- Art or design style references (like cozy zine, anime realism, formline, vaporwave, etc)
-Use soft and supportive tone, short bullet points.`;
+  // === AI Mode ===
+
+  const prompt = `Based on the keywords: "${keywords}" and the vibe "${vibe}", respond with a brand aesthetic object in this exact JSON format:
+
+{
+  "mood": "Name of the aesthetic",
+  "colors": [
+    { "name": "juniper green", "hex": "#3E6259" },
+    ...
+  ],
+  "motifs": ["herbal silhouettes", "ribbon trails"],
+  "styles": ["zine collage", "minimal formline"],
+  "vibe": "Short, warm description of the brand aesthetic"
+}
+
+Keep the tone gentle and supportive. Do not include any explanations or text outside the JSON.`;
 
   try {
     const response = await openai.chat.completions.create({
@@ -36,9 +46,16 @@ Use soft and supportive tone, short bullet points.`;
       messages: [{ role: 'user', content: prompt }],
     });
 
-    const aestheticData = response.data.choices[0].message.content.trim();
+    const content = response.choices[0].message.content.trim();
+    let aestheticData;
 
-    res.json({ aestheticData });
+    try {
+      aestheticData = JSON.parse(content);
+      res.json({ aestheticData });
+    } catch (error) {
+      console.error('Failed to parse aestheticData JSON:', error);
+      res.status(500).json({ error: 'AI response was invalid JSON.' });
+    }
   } catch (error) {
     console.error('OpenAI error in aestheticController', error);
     res.status(500).json({ error: 'Failed to generate aesthetic data.' });

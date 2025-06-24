@@ -4,6 +4,8 @@ import { openai } from '../utils/openai.js';
 export const analyzePrompts = async (req, res) => {
   const { purpose, goals, values, type = 'healer', mode = 'ai' } = req.body;
 
+  // === Static Mode ===
+
   if (mode === 'static') {
     try {
       const summary = getStaticSummary(type);
@@ -14,6 +16,8 @@ export const analyzePrompts = async (req, res) => {
       return res.status(400).json({ error: error.message });
     }
   }
+
+  // === AI Mode ===
 
   const prompt = `Based on the following information from an Indigenous creator, generate a short brand summary using warm, supportive language: 
   Purpose: ${purpose}

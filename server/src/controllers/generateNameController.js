@@ -4,6 +4,8 @@ import { getNamesByVibe } from '../data/static/index.js';
 export const generateName = async (req, res) => {
   const { values, audience, vibe, mode = 'ai' } = req.body;
 
+  // === Static Mode ===
+
   if (mode === 'static') {
     try {
       const namesData = getNamesByVibe(vibe);
@@ -13,6 +15,8 @@ export const generateName = async (req, res) => {
       return res.status(400).json({ error: error.message });
     }
   }
+
+  // === AI Mode ===
 
   const prompt = `Suggest 5 unique and creative brand names for an Indigenous creator whose values include: ${values}, whose audience is: ${audience}, and whose brand vibe is: ${vibe}. Make them poetic, relevant, and short.`;
 
