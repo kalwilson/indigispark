@@ -5,7 +5,7 @@ import {
 } from '../data/static/index.js';
 
 export const getAesthetic = async (req, res) => {
-  const { vibe, keywords = '', mode = 'ai', staticMode = 'byMood' } = req.body;
+  const { mood, keywords = '', mode = 'ai', staticMode = 'byMood' } = req.body;
 
   // === Static Mode ===
 
@@ -14,7 +14,7 @@ export const getAesthetic = async (req, res) => {
       let aestheticData =
         staticMode === 'random'
           ? getRandomAesthetic()
-          : getAestheticByMood(vibe);
+          : getAestheticByMood(mood);
 
       return res.json({ aestheticData });
     } catch (error) {
@@ -25,7 +25,7 @@ export const getAesthetic = async (req, res) => {
 
   // === AI Mode ===
 
-  const prompt = `Based on the keywords: "${keywords}" and the vibe "${vibe}", respond with a brand aesthetic object in this exact JSON format:
+  const prompt = `Based on the keywords: "${keywords}" and the overall mood "${mood}", respond with a brand aesthetic object in this exact JSON format:
 
 {
   "mood": "Name of the aesthetic",
