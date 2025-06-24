@@ -3,13 +3,16 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import { BrandProvider } from './context/BrandContext.jsx';
+import { ApiProvider } from './context/ApiContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <BrandProvider>
-        <App />
-      </BrandProvider>
+      <ApiProvider>
+        <BrandProvider>
+          <App />
+        </BrandProvider>
+      </ApiProvider>
     </BrowserRouter>
   </StrictMode>
 );

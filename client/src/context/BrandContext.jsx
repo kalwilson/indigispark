@@ -8,7 +8,9 @@ export const BrandProvider = ({ children }) => {
     purpose: '',
     goals: '',
     values: '',
+    audience: '',
     type: 'healer',
+    vibe: 'dreamy',
     mode: 'static',
     staticMode: 'byMood', // random or byMood, only if mode === 'static'
     mood: '',
