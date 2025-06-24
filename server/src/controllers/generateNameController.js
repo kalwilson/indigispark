@@ -1,7 +1,18 @@
 import { openai } from '../utils/openai.js';
+import { getNamesByVibe } from '../data/static/index.js';
 
 export const generateName = async (req, res) => {
-  const { values, audience, vibe } = req.body;
+  const { values, audience, vibe, mode = 'ai' } = req.body;
+
+  if (mode === 'static') {
+    try {
+      const namesData = getNamesByVibe(vibe);
+      return res.json({ namesData });
+    } catch (error) {
+      console.error('Static error in generateName:', error);
+      return res.status(400).json({ error: error.message });
+    }
+  }
 
   const prompt = `Suggest 5 unique and creative brand names for an Indigenous creator whose values include: ${values}, whose audience is: ${audience}, and whose brand vibe is: ${vibe}. Make them poetic, relevant, and short.`;
 

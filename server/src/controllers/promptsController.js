@@ -1,7 +1,19 @@
+import { getStaticSummary } from '../data/static/brandSummaries.js';
 import { openai } from '../utils/openai.js';
 
 export const analyzePrompts = async (req, res) => {
-  const { purpose, goals, values } = req.body;
+  const { purpose, goals, values, type = 'healer', mode = 'ai' } = req.body;
+
+  if (mode === 'static') {
+    try {
+      const summary = getStaticSummary(type);
+
+      return res.json({ summary });
+    } catch (error) {
+      console.error('Static error in promptsControler:', error);
+      return res.status(400).json({ error: error.message });
+    }
+  }
 
   const prompt = `Based on the following information from an Indigenous creator, generate a short brand summary using warm, supportive language: 
   Purpose: ${purpose}
