@@ -1,0 +1,137 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// === Font Faces ===
+// Normal
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  src: url(`#{$font-path-regular}`) format('woff2'),
+    url(`#{$font-path-regular-alt}`) format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: $font-weight-medium;
+  src: url(`#{$font-path-medium}`) format('woff2'),
+    url(`#{$font-path-medium-alt}`) format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: $font-weight-bold;
+  src: url(`#{$font-path-bold}`) format('woff2'),
+    url(`#{$font-path-bold-alt}`) format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: $font-weight-heavy;
+  src: url(`#{$font-path-heavy}`) format('woff2'),
+    url(`#{$font-path-heavy-alt}`) format('woff');
+  font-display: swap;
+}
+
+// Italic
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  src: url(`#{$font-path-regular-italic}`) format('woff2'),
+    url(`#{$font-path-regular-italic-alt}`) format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: $font-weight-medium;
+  src: url(`#{$font-path-medium-italic}`) format('woff2'),
+    url(`#{$font-path-medium-italic-alt}`) format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: $font-weight-bold;
+  src: url(`#{$font-path-bold-italic}`) format('woff2'),
+    url(`#{$font-path-bold-italic-alt}`) format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: $font-weight-heavy;
+  src: url(`#{$font-path-heavy-italic}`) format('woff2'),
+    url(`#{$font-path-heavy-italic-alt}`) format('woff');
+  font-display: swap;
+}
+
+// Headings
+h1 {
+  @include heading-style(h1);
+}
+
+h2 {
+  @include heading-style(h2);
+}
+
+h3 {
+  @include heading-style(h3);
+}
+
+h4 {
+  @include heading-style(h4);
+}
+
+h5 {
+  @include heading-style(h5);
+}
+
+h6 {
+  @include heading-style(h6);
+}
+
+body,
+p {
+  @include body-text;
+}
+
+a {
+  position: relative;
+  color: $color-link;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: color 0.2s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: $color-link;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    width: 100%;
+    left: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-link-hover;
+  }
+}

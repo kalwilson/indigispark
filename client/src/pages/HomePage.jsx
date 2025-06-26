@@ -11,10 +11,10 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <h1 className="homepage__heading">IndigiSpark</h1>
+      <h1 className="homepage__heading">Lightling Labs</h1>
       <p className="homepage__description">
-        Light the spark of your brand! Guided tools to help Indigenous creators
-        name, shape, and style their creative identity.
+        Gently spark your brand's beginning. Guided tools to help Indigenous
+        creators name, shape, and style their creative identity with heart.
       </p>
       <label>
         Choose experience mode:

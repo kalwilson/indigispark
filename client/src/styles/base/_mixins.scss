@@ -1,0 +1,19 @@
+@use './variables' as *;
+@use 'sass:map';
+
+@mixin heading-style($level) {
+  $styles: map.get($heading-styles, $level);
+
+  font-size: map.get($styles, size);
+  line-height: map.get($styles, line-height);
+  font-weight: map.get($styles, weight);
+  color: $color-text;
+}
+
+@mixin body-text {
+  font-size: clamp(1rem, 0.75vw + 1rem, 1.25rem);
+  line-height: 1.6;
+  font-weight: $font-weight-regular;
+  font-family: $font-family-main;
+  color: $color-text;
+}

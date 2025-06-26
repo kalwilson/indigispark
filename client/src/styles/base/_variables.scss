@@ -1,0 +1,147 @@
+@use 'sass:color';
+
+//  === Color Vars ===
+// Primary colors
+$color-primary-light: #fefbf6;
+$color-primary-neutral: #dadada;
+$color-primary-dark: #2a2a40;
+$color-primary-highlight: #f4b400;
+
+//  Alternate colors
+$color-alt-light: #fff8f1;
+$color-alt-neutral: #e6e1d9;
+$color-alt-dark: #1a1a1a;
+
+// Accent colors
+$color-accent-primary: #f6b5c0;
+$color-accent-secondary: #c4a8e1;
+$color-accent-tertiary: #c9e4c5;
+
+// Status colors
+$color-status-error: #d64545;
+$color-status-error-bg: color.adjust($color-status-error, $lightness: 25%);
+$color-status-warning: $color-primary-highlight;
+$color-status-warning-bg: color.adjust($color-status-warning, $lightness: 25%);
+$color-status-success: #4b9b69;
+$color-status-success-bg: color.adjust($color-status-success, $lightness: 25%);
+$color-status-info: #4b6cb7;
+$color-status-info-bg: color.adjust($color-status-info, $lightness: 25%);
+
+// Functional colors
+$color-background: $color-primary-light;
+$color-surface: $color-alt-light;
+$color-text: $color-primary-dark;
+$color-border: $color-primary-neutral;
+$color-link: #6841a5;
+$color-link-hover: color.adjust($color-link, $lightness: -10%);
+
+// === Font Vars ===
+// Font Family
+$font-family-main: Mulish;
+
+// Font Sizes
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 2rem;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-heavy: 900;
+
+// Font Paths Normal
+$font-path-regular: '/fonts/mulish-latin-400-normal.woff2';
+$font-path-regular-alt: '/fonts/mulish-latin-400-normal.woff';
+
+$font-path-medium: '/fonts/mulish-latin-500-normal.woff2';
+$font-path-medium-alt: '/fonts/mulish-latin-500-normal.woff';
+
+$font-path-bold: 'public/fonts/mulish-latin-700-normal.woff2';
+$font-path-bold-alt: 'public/fonts/mulish-latin-700-normal.woff';
+
+$font-path-heavy: 'public/fonts/mulish-latin-900-normal.woff2';
+$font-path-heavy-alt: 'public/fonts/mulish-latin-900-normal.woff';
+
+// Font Paths Italic
+$font-path-regular-italic: '/fonts/mulish-latin-400-italic.woff2';
+$font-path-regular-italic-alt: '/fonts/mulish-latin-400-italic.woff';
+
+$font-path-medium-italic: '/fonts/mulish-latin-500-italic.woff2';
+$font-path-medium-italic-alt: '/fonts/mulish-latin-500-italic.woff';
+
+$font-path-bold-italic: 'public/fonts/mulish-latin-700-italic.woff2';
+$font-path-bold-italic-alt: 'public/fonts/mulish-latin-700-italic.woff';
+
+$font-path-heavy-italic: 'public/fonts/mulish-latin-900-italic.woff2';
+$font-path-heavy-italic-alt: 'public/fonts/mulish-latin-900-italic.woff';
+
+// Headings
+$heading-styles: (
+  h1: (
+    size: clamp(2rem, 4vw + 1rem, 4rem),
+    line-height: 1.1,
+    weight: $font-weight-heavy,
+  ),
+  h2: (
+    size: clamp(1.75rem, 3vw + 1rem, 3rem),
+    line-height: 1.2,
+    weight: $font-weight-heavy,
+  ),
+  h3: (
+    size: clamp(1.5rem, 2vw + 1rem, 2.25rem),
+    line-height: 1.3,
+    weight: $font-weight-bold,
+  ),
+  h4: (
+    size: clamp(1.25rem, 1.5vw + 1rem, 2.25rem),
+    line-height: 1.4,
+    weight: $font-weight-bold,
+  ),
+  h5: (
+    size: clamp(1.125rem, 1vw + 1rem, 1.5rem),
+    line-height: 1.5,
+    weight: $font-weight-medium,
+  ),
+  h6: (
+    size: clamp(1rem, 0.75vw + 1rem, 1.25rem),
+    line-height: 1.6,
+    weight: $font-weight-medium,
+  ),
+);
+// Test out maps for fonts or use this to-do
+// $h1-size: clamp(2rem, 4vw + 1rem, 4rem);
+// $h2-size: clamp(1.75rem, 3 + 1rem, 3rem);
+// $h3-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+// $h4-size: clamp(1.25rem, 1.5vw + 1rem, 2.25rem);
+// $h5-size: clamp(1.125rem, 1vw + 1rem, 1.5rem);
+// $h6-size: clamp(1rem, 0.75vw + 1rem, 1.25rem);
+
+// Border radius
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+
+// Box shadows
+$shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.15);
+
+// Z-index
+$z-index-tip: 1100;
+$z-index-modal: 1200;
+
+// Spacing
+$space-xxs: 0.25rem;
+$space-xs: 0.5rem;
+$space-sm: 0.75rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+$space-xxl: 3rem;
+
+// Breakpoints
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
