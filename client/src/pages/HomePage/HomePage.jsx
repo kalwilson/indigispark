@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useBrand } from '../context/BrandContext';
+import { useBrand } from '../../context/BrandContext';
 
 const HomePage = () => {
   const navigate = useNavigate();

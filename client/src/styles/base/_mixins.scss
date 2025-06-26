@@ -7,6 +7,8 @@
   font-size: map.get($styles, size);
   line-height: map.get($styles, line-height);
   font-weight: map.get($styles, weight);
+  font-family: $font-family-accent;
+  font-style: normal;
   color: $color-text;
 }
 
@@ -15,5 +17,6 @@
   line-height: 1.6;
   font-weight: $font-weight-regular;
   font-family: $font-family-main;
+  font-style: normal;
   color: $color-text;
 }

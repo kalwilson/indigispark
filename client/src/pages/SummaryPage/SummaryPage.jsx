@@ -1,4 +1,4 @@
-import { useBrand } from '../context/BrandContext';
+import { useBrand } from '../../context/BrandContext.jsx';
 import { useNavigate } from 'react-router-dom';
 const SummaryPage = () => {
   const { brandData, setBrandData } = useBrand();

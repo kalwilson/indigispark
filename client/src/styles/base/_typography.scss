@@ -2,77 +2,79 @@
 @use 'mixins' as *;
 
 // === Font Faces ===
-// Normal
+// Normal Atkinson
 @font-face {
-  font-family: 'Mulish';
+  font-family: 'Atkinson Hyperlegible';
   font-style: normal;
   font-weight: $font-weight-regular;
-  src: url(`#{$font-path-regular}`) format('woff2'),
-    url(`#{$font-path-regular-alt}`) format('woff');
+  src: url('#{$fp-main-regular}') format('woff2'),
+    url('#{$fp-main-regular-alt}') format('woff');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: $font-weight-medium;
-  src: url(`#{$font-path-medium}`) format('woff2'),
-    url(`#{$font-path-medium-alt}`) format('woff');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Mulish';
+  font-family: 'Atkinson Hyperlegible';
   font-style: normal;
   font-weight: $font-weight-bold;
-  src: url(`#{$font-path-bold}`) format('woff2'),
-    url(`#{$font-path-bold-alt}`) format('woff');
+  src: url('#{$fp-main-bold}') format('woff2'),
+    url('#{$fp-main-bold-alt}') format('woff');
+  font-display: swap;
+}
+
+// Italic Atkinson
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: italic;
+  font-weight: $font-weight-regular;
+  src: url('#{$fp-main-regular-italic}') format('woff2'),
+    url('#{$fp-main-regular-italic-alt}') format('woff');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: $font-weight-heavy;
-  src: url(`#{$font-path-heavy}`) format('woff2'),
-    url(`#{$font-path-heavy-alt}`) format('woff');
+  font-family: 'Atkinson Hyperlegible';
+  font-style: italic;
+  font-weight: $font-weight-bold;
+  src: url('#{$fp-main-bold-italic}') format('woff2'),
+    url('#{$fp-main-bold-italic-alt}') format('woff');
   font-display: swap;
 }
 
-// Italic
+// Normal Fraunces
 @font-face {
-  font-family: 'Mulish';
+  font-family: 'Fraunces';
   font-style: normal;
   font-weight: $font-weight-regular;
-  src: url(`#{$font-path-regular-italic}`) format('woff2'),
-    url(`#{$font-path-regular-italic-alt}`) format('woff');
+  src: url('#{$fp-accent-regular}') format('woff2'),
+    url('#{$fp-accent-regular-alt}') format('woff');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: $font-weight-medium;
-  src: url(`#{$font-path-medium-italic}`) format('woff2'),
-    url(`#{$font-path-medium-italic-alt}`) format('woff');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Mulish';
+  font-family: 'Fraunces';
   font-style: normal;
   font-weight: $font-weight-bold;
-  src: url(`#{$font-path-bold-italic}`) format('woff2'),
-    url(`#{$font-path-bold-italic-alt}`) format('woff');
+  src: url('#{$fp-accent-bold}') format('woff2'),
+    url('#{$fp-accent-bold-alt}') format('woff');
+  font-display: swap;
+}
+
+// Italic Fraunces
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: $font-weight-regular;
+  src: url('#{$fp-accent-regular-italic}') format('woff2'),
+    url('#{$fp-accent-regular-italic-alt}') format('woff');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: $font-weight-heavy;
-  src: url(`#{$font-path-heavy-italic}`) format('woff2'),
-    url(`#{$font-path-heavy-italic-alt}`) format('woff');
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: $font-weight-bold;
+  src: url('#{$fp-accent-bold-italic}') format('woff2'),
+    url('#{$fp-accent-bold-italic-alt}') format('woff');
   font-display: swap;
 }
 
@@ -110,7 +112,7 @@ a {
   position: relative;
   color: $color-link;
   text-decoration: none;
-  font-weight: $font-weight-medium;
+  font-weight: $font-weight-bold;
   transition: color 0.2s ease;
 
   &::after {

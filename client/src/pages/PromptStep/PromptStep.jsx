@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useApi } from '../context/ApiContext';
-import { useBrand } from '../context/BrandContext';
+import { useApi } from '../../context/ApiContext';
+import { useBrand } from '../../context/BrandContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const PromptStep = () => {

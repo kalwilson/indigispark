@@ -4,7 +4,6 @@ const BrandContext = createContext();
 
 export const BrandProvider = ({ children }) => {
   const [brandData, setBrandData] = useState({
-    // to-do double check k/v pairs with backend
     purpose: '',
     goals: '',
     values: '',
@@ -12,7 +11,7 @@ export const BrandProvider = ({ children }) => {
     type: 'healer',
     vibe: 'dreamy',
     mode: 'static',
-    staticMode: 'byMood', // random or byMood, only if mode === 'static'
+    staticMode: 'byMood',
     mood: '',
     nameSuggestions: [],
     aesthetic: null,

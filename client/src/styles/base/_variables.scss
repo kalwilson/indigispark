@@ -37,7 +37,8 @@ $color-link-hover: color.adjust($color-link, $lightness: -10%);
 
 // === Font Vars ===
 // Font Family
-$font-family-main: Mulish;
+$font-family-main: 'Atkinson Hyperlegible';
+$font-family-accent: 'Fraunces';
 
 // Font Sizes
 $font-size-xs: 0.75rem;
@@ -49,47 +50,45 @@ $font-size-xxl: 2rem;
 
 // Font Weights
 $font-weight-regular: 400;
-$font-weight-medium: 500;
 $font-weight-bold: 700;
-$font-weight-heavy: 900;
 
-// Font Paths Normal
-$font-path-regular: '/fonts/mulish-latin-400-normal.woff2';
-$font-path-regular-alt: '/fonts/mulish-latin-400-normal.woff';
+// === Font Paths Normal Atkinson
+$fp-main-regular: '/fonts/AtkinsonHyperlegible-Regular.woff2';
+$fp-main-regular-alt: '/fonts/AtkinsonHyperlegible-Regular.woff';
 
-$font-path-medium: '/fonts/mulish-latin-500-normal.woff2';
-$font-path-medium-alt: '/fonts/mulish-latin-500-normal.woff';
+$fp-main-bold: '/fonts/AtkinsonHyperlegible-Bold.woff2';
+$fp-main-bold-alt: '/fonts/AtkinsonHyperlegible-Bold.woff';
+// === Font Paths Italic Atkinson
+$fp-main-regular-italic: '/fonts/AtkinsonHyperlegible-Italic.woff2';
+$fp-main-regular-italic-alt: '/fonts/AtkinsonHyperlegible-Italic.woff';
 
-$font-path-bold: 'public/fonts/mulish-latin-700-normal.woff2';
-$font-path-bold-alt: 'public/fonts/mulish-latin-700-normal.woff';
+$fp-main-bold-italic: '/fonts/AtkinsonHyperlegible-BoldItalic.woff2';
+$fp-main-bold-italic-alt: '/fonts/AtkinsonHyperlegible-BoldItalic.woff';
 
-$font-path-heavy: 'public/fonts/mulish-latin-900-normal.woff2';
-$font-path-heavy-alt: 'public/fonts/mulish-latin-900-normal.woff';
+// === Font Paths Normal Fraunces
+$fp-accent-regular: '/fonts/Fraunces72ptSoft-Regular.woff2';
+$fp-accent-regular-alt: '/fonts/Fraunces72ptSoft-Regular.woff';
 
-// Font Paths Italic
-$font-path-regular-italic: '/fonts/mulish-latin-400-italic.woff2';
-$font-path-regular-italic-alt: '/fonts/mulish-latin-400-italic.woff';
+$fp-accent-bold: '/fonts/Fraunces72ptSoft-Bold.woff2';
+$fp-accent-bold-alt: '/fonts/Fraunces72ptSoft-Bold.woff';
+// === Font Paths Italic Fraunces
+$fp-accent-regular-italic: '/fonts/Fraunces72ptSoft-Italic.woff2';
+$fp-accent-regular-italic-alt: '/fonts/Fraunces72ptSoft-Italic.woff';
 
-$font-path-medium-italic: '/fonts/mulish-latin-500-italic.woff2';
-$font-path-medium-italic-alt: '/fonts/mulish-latin-500-italic.woff';
-
-$font-path-bold-italic: 'public/fonts/mulish-latin-700-italic.woff2';
-$font-path-bold-italic-alt: 'public/fonts/mulish-latin-700-italic.woff';
-
-$font-path-heavy-italic: 'public/fonts/mulish-latin-900-italic.woff2';
-$font-path-heavy-italic-alt: 'public/fonts/mulish-latin-900-italic.woff';
+$fp-accent-bold-italic: '/fonts/Fraunces72ptSoft-BoldItalic.woff2';
+$fp-accent-bold-italic-alt: '/fonts/Fraunces72ptSoft-BoldItalic.woff';
 
 // Headings
 $heading-styles: (
   h1: (
     size: clamp(2rem, 4vw + 1rem, 4rem),
     line-height: 1.1,
-    weight: $font-weight-heavy,
+    weight: $font-weight-bold,
   ),
   h2: (
     size: clamp(1.75rem, 3vw + 1rem, 3rem),
     line-height: 1.2,
-    weight: $font-weight-heavy,
+    weight: $font-weight-bold,
   ),
   h3: (
     size: clamp(1.5rem, 2vw + 1rem, 2.25rem),
@@ -104,21 +103,14 @@ $heading-styles: (
   h5: (
     size: clamp(1.125rem, 1vw + 1rem, 1.5rem),
     line-height: 1.5,
-    weight: $font-weight-medium,
+    weight: $font-weight-bold,
   ),
   h6: (
     size: clamp(1rem, 0.75vw + 1rem, 1.25rem),
     line-height: 1.6,
-    weight: $font-weight-medium,
+    weight: $font-weight-bold,
   ),
 );
-// Test out maps for fonts or use this to-do
-// $h1-size: clamp(2rem, 4vw + 1rem, 4rem);
-// $h2-size: clamp(1.75rem, 3 + 1rem, 3rem);
-// $h3-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
-// $h4-size: clamp(1.25rem, 1.5vw + 1rem, 2.25rem);
-// $h5-size: clamp(1.125rem, 1vw + 1rem, 1.5rem);
-// $h6-size: clamp(1rem, 0.75vw + 1rem, 1.25rem);
 
 // Border radius
 $radius-sm: 0.25rem;
