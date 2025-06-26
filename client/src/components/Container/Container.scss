@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+
+  &--narrow {
+    max-width: 800px;
+    padding: 1rem;
+  }
+
+  &--wide {
+    max-width: 1400px;
+    padding: 4rem;
+  }
+}
