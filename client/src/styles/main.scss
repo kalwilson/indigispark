@@ -1,18 +1,2 @@
-// Base styles
-@use './base/index' as *;
-
-// // Component styles
-// // Layouts
-// @use 'layouts/container';
-// @use 'layouts/AppHeader';
-// @use 'layouts/AppFooter';
-
-// // Pages
-// @use 'pages/HomePage';
-// @use 'pages/PromptStep';
-// @use 'pages/NameStep';
-// @use 'pages/AestheticStep';
-// @use 'pages/SummaryPage';
-
-// // Utilities
-// @use 'utils/utilities';
+// Partials
+@use './partials/index.scss' as *;

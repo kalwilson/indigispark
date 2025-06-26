@@ -1,9 +1,11 @@
-import { Container } from '../index';
+import { AppHeader, AppFooter, Container } from '../index';
 
 const DefaultLayout = ({ children }) => {
   return (
     <>
+      <AppHeader />
       <Container>{children}</Container>
+      <AppFooter />
     </>
   );
 };
