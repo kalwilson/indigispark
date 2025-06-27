@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useBrand } from '../../context/BrandContext';
+import { InfoIcon } from '../../components/AppIcons';
 import './HomePage.scss';
 
 const HomePage = () => {
@@ -21,8 +22,30 @@ const HomePage = () => {
       </p>
       <div className="homepage__mode-buttons">
         <div className="homepage__label-row">
-          <p className="homepage__label">Choose your experience:</p>
+          <p className="homepage__label">
+            Choose your experience!{' '}
+            <button
+              className="homepage__info-button"
+              onClick={() => setShowInfo(true)}
+              aria-label="What do these options mean?"
+            >
+              <InfoIcon size={17} color="#4b6cb7" />
+            </button>
+          </p>
 
+          {showInfo && (
+            <div className="homepage__tooltip">
+              <p>
+                <strong>Manual Mode</strong> lets you choose everything
+                yourself.
+              </p>
+              <p>
+                <strong>AI Assist</strong> gives you smart suggestions and
+                names.
+              </p>
+              <button onClick={() => setShowInfo(false)}>Close</button>
+            </div>
+          )}
           <div className="homepage__button-group">
             <button
               className={`homepage__mode-button ${
@@ -41,26 +64,7 @@ const HomePage = () => {
               AI Assist
             </button>
           </div>
-          <button
-            className="homepage__info-button"
-            onClick={() => setShowInfo(true)}
-            aria-label="What do these options mean?"
-          >
-            Info
-          </button>
         </div>
-
-        {showInfo && (
-          <div className="homepage__tooltip">
-            <p>
-              <strong>Manual Mode</strong> lets you choose everything yourself.
-            </p>
-            <p>
-              <strong>AI Assist</strong> gives you smart suggestions and names.
-            </p>
-            <button onClick={() => setShowInfo(false)}>Close</button>
-          </div>
-        )}
       </div>
 
       <button onClick={() => navigate('/prompts')} className="homepage__button">

@@ -1,5 +1,16 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
 .homepage {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+
+  &__heading {
+    margin: 0 0 $space-lg 0;
+  }
+
+  &__description {
+    font-style: italic;
+  }
 }

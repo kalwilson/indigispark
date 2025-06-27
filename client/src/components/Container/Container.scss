@@ -5,7 +5,7 @@
 .container {
   display: flex;
   width: 85%;
-  min-height: 30rem;
+  min-height: 35rem;
   max-width: 45rem;
   margin: 0 auto;
   padding: 1rem 2rem;
@@ -18,7 +18,8 @@
       45deg,
       $color-accent-primary,
       $color-accent-secondary,
-      color.adjust($color-status-info, $lightness: 20%)
+      color.adjust($color-status-info, $lightness: 20%),
+      color.adjust($color-accent-tertiary, $lightness: -10%)
     ),
     $color-background
   );
