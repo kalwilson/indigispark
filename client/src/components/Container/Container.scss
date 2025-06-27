@@ -1,9 +1,27 @@
+@use 'sass:color';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
 .container {
-  width: 100%;
-  max-width: 1200px;
+  display: flex;
+  width: 85%;
+  min-height: 30rem;
+  max-width: 45rem;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem 2rem;
   box-sizing: border-box;
+  @include frosted-glass;
+  @include gradient-border(
+    3px,
+    4px,
+    linear-gradient(
+      45deg,
+      $color-accent-primary,
+      $color-accent-secondary,
+      color.adjust($color-status-info, $lightness: 20%)
+    ),
+    $color-background
+  );
 
   &--narrow {
     max-width: 800px;

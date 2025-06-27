@@ -119,7 +119,7 @@ const AestheticStep = () => {
 
           <button onClick={handleSelect}>Use this aesthetic</button>
           <button onClick={fetchAesthetic} disabled={loading}>
-            🔁 Reroll
+            Reroll
           </button>
         </>
       )}

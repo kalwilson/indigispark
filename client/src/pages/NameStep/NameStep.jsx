@@ -102,7 +102,7 @@ const NameStep = () => {
 
       {!loading && names.length > 0 && (
         <button onClick={handleReroll} style={{ marginTop: '1rem' }}>
-          🔁 Show Different Names
+          Show Different Names
         </button>
       )}
     </div>

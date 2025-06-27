@@ -1,9 +1,12 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useBrand } from '../../context/BrandContext';
+import './HomePage.scss';
 
 const HomePage = () => {
   const navigate = useNavigate();
   const { brandData, setBrandData } = useBrand();
+  const [showInfo, setShowInfo] = useState(false);
 
   const handleModeChange = (event) => {
     setBrandData({ ...brandData, mode: event.target.value });
@@ -16,13 +19,50 @@ const HomePage = () => {
         Gently spark your brand's beginning. Guided tools to help Indigenous
         creators name, shape, and style their creative identity with heart.
       </p>
-      <label>
-        Choose experience mode:
-        <select value={brandData.mode} onChange={handleModeChange}>
-          <option value="static">Static</option>
-          <option value="ai">AI-Generated</option>
-        </select>
-      </label>
+      <div className="homepage__mode-buttons">
+        <div className="homepage__label-row">
+          <p className="homepage__label">Choose your experience:</p>
+
+          <div className="homepage__button-group">
+            <button
+              className={`homepage__mode-button ${
+                brandData.mode === 'static' ? 'is-active' : ''
+              }`}
+              onClick={() => setBrandData({ ...brandData, mode: 'static' })}
+            >
+              Manual Mode
+            </button>
+            <button
+              className={`homepage__mode-button ${
+                brandData.mode === 'ai' ? 'is-active' : ''
+              }`}
+              onClick={() => setBrandData({ ...brandData, mode: 'ai' })}
+            >
+              AI Assist
+            </button>
+          </div>
+          <button
+            className="homepage__info-button"
+            onClick={() => setShowInfo(true)}
+            aria-label="What do these options mean?"
+          >
+            Info
+          </button>
+        </div>
+
+        {showInfo && (
+          <div className="homepage__tooltip">
+            <p>
+              <strong>Manual Mode</strong> lets you choose everything yourself.
+            </p>
+            <p>
+              <strong>AI Assist</strong> gives you smart suggestions and names.
+            </p>
+            <button onClick={() => setShowInfo(false)}>Close</button>
+          </div>
+        )}
+      </div>
+
       <button onClick={() => navigate('/prompts')} className="homepage__button">
         Get Started
       </button>
