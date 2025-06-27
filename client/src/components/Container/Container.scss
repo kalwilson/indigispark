@@ -10,10 +10,10 @@
   margin: 0 auto;
   padding: 1rem 2rem;
   box-sizing: border-box;
-  @include frosted-glass;
+
   @include gradient-border(
-    3px,
     4px,
+    6px,
     linear-gradient(
       45deg,
       $color-accent-primary,
@@ -21,7 +21,7 @@
       color.adjust($color-status-info, $lightness: 20%),
       color.adjust($color-accent-tertiary, $lightness: -10%)
     ),
-    $color-background
+    white
   );
 
   &--narrow {

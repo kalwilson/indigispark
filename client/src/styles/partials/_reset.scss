@@ -95,9 +95,9 @@ select {
   color: inherit;
 }
 
-input,
-textarea,
-select {
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
   border-radius: 0;
   outline: none;
   border: 1px solid #ccc;
@@ -110,13 +110,13 @@ button {
   cursor: pointer;
 }
 
-input:focus,
-textarea:focus,
-select:focus,
-button:focus {
-  outline: 2px solid #ccc;
-  outline-offset: 2px;
-}
+// input:focus,
+// textarea:focus,
+// select:focus,
+// button:focus {
+//   outline: 2px solid #ccc;
+//   outline-offset: 2px;
+// }
 
 textarea:not([rows]) {
   min-height: 10em;

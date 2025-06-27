@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use './variables' as *;
 @use 'sass:map';
 
@@ -81,15 +82,24 @@
   }
 }
 
-@mixin frosted-glass(
-  $blur: 10px,
-  $bg: rgba(255, 255, 255, 0.15),
-  $border: rgba(255, 255, 255, 0.25)
-) {
-  background: $bg;
-  backdrop-filter: blur($blur);
-  -webkit-backdrop-filter: blur($blur);
-  border: 1px solid $border;
-  border-radius: $radius-xl;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+@mixin gradient-border-bottom($height: 4px) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: $height;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      $color-accent-primary,
+      $color-accent-secondary,
+      color.adjust($color-status-info, $lightness: 20%),
+      color.adjust($color-accent-tertiary, $lightness: -10%)
+    );
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
 }
