@@ -19,7 +19,7 @@ $color-accent-tertiary: #c9e4c5;
 
 // Status colors
 $color-status-error: #d64545;
-$color-status-error-bg: color.adjust($color-status-error, $lightness: 25%);
+$color-status-error-bg: color.adjust($color-status-error, $lightness: 37%);
 $color-status-warning: $color-primary-highlight;
 $color-status-warning-bg: color.adjust($color-status-warning, $lightness: 25%);
 $color-status-success: #4b9b69;

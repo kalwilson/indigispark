@@ -1,0 +1,81 @@
+@use 'sass:color';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.prompt-step {
+  width: 100%;
+  display: block;
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  gap: $space-sm;
+
+  &__heading {
+    margin-bottom: $space-sm;
+  }
+
+  &__label {
+    display: flex;
+    flex-flow: column nowrap;
+    font-weight: $font-weight-bold;
+    margin-bottom: $space-sm;
+  }
+
+  &__button {
+    @include gradient-border(
+      3px,
+      6px,
+      linear-gradient(
+        45deg,
+        $color-accent-primary,
+        $color-accent-secondary,
+        color.adjust($color-status-info, $lightness: 20%),
+        color.adjust($color-accent-tertiary, $lightness: -10%)
+      ),
+      white
+    );
+    align-self: center;
+    min-width: fit-content;
+    width: 80%;
+    padding: 1rem 0;
+    font-family: $font-family-accent;
+    font-size: 1.5rem;
+    font-weight: $font-weight-bold;
+    box-shadow: $shadow-medium;
+    transition: ease-in-out;
+    &:active {
+      position: relative;
+      top: 0.1rem;
+    }
+  }
+
+  &__textarea {
+    resize: none;
+    border: 2px solid #ccc;
+    background: none;
+  }
+
+  &__textarea--error {
+    @extend .form__textarea;
+    border: 2px solid $color-status-error;
+    background: $color-status-error-bg;
+
+    &:focus {
+      @extend .form__textarea;
+    }
+  }
+
+  &__error-message {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1rem;
+    color: $color-status-error;
+    font-weight: $font-weight-bold;
+    gap: 0.25rem;
+  }
+}

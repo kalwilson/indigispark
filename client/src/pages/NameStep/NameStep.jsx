@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useApi } from '../../context/ApiContext';
 import { useBrand } from '../../context/BrandContext';
 import { useNavigate } from 'react-router-dom';
+import './NameStep.scss';
 
 const NameStep = () => {
   const { apiUrl } = useApi();
@@ -37,7 +38,7 @@ const NameStep = () => {
             typeof entry === 'string' ? { name: entry, meaning: '' } : entry
           )
         );
-        setBrandData((prev) => ({ ...prev, vibe: localVibe })); // Save vibe to context
+        setBrandData((prev) => ({ ...prev, vibe: localVibe }));
       } else {
         throw new Error(data.error || 'Failed to fetch names');
       }

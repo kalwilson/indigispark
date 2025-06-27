@@ -107,33 +107,3 @@ body,
 p {
   @include body-text;
 }
-
-a {
-  position: relative;
-  color: $color-link;
-  text-decoration: none;
-  font-weight: $font-weight-bold;
-  transition: color 0.2s ease;
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: $color-link;
-    transition: width 0.3s ease, left 0.3s ease;
-  }
-
-  &:hover::after,
-  &:focus::after {
-    width: 100%;
-    left: 0;
-  }
-
-  &:hover,
-  &:focus {
-    color: $color-link-hover;
-  }
-}

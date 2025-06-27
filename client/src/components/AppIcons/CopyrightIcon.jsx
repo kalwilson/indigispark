@@ -1,10 +1,10 @@
-const CopyrightIcon = ({ size = 25, iconColor = 'currentColor', ...props }) => (
+const CopyrightIcon = ({ size = 25, color = 'currentColor', ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     width={size}
     height={size}
-    fill={iconColor}
+    fill={color}
     aria-hidden="true"
     {...props}
   >

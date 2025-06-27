@@ -1,0 +1,35 @@
+@use '../../styles/partials/variables' as *;
+
+.site-footer {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  font-family: $font-family-accent;
+  font-weight: $font-weight-bold;
+  padding: 0 1rem;
+  font-size: 1rem;
+  color: inherit;
+
+  &__section {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__section--copyright {
+    @extend .site-footer__section;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &__outside-link {
+    color: $color-link;
+    text-decoration: none;
+    transition: ease-in-out;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}

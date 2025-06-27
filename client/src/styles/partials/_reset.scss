@@ -100,7 +100,8 @@ textarea:focus-visible,
 select:focus-visible {
   border-radius: 0;
   outline: none;
-  border: 1px solid #ccc;
+  box-shadow: none;
+  border: 2px solid #ccc;
   padding: 0.5rem;
 }
 
@@ -109,14 +110,6 @@ button {
   border: none;
   cursor: pointer;
 }
-
-// input:focus,
-// textarea:focus,
-// select:focus,
-// button:focus {
-//   outline: 2px solid #ccc;
-//   outline-offset: 2px;
-// }
 
 textarea:not([rows]) {
   min-height: 10em;

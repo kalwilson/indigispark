@@ -4,6 +4,7 @@ import {
   NameStep,
   AestheticStep,
   SummaryPage,
+  AboutPage,
 } from '../pages';
 
 export const routes = [
@@ -12,4 +13,5 @@ export const routes = [
   { path: '/names', element: <NameStep /> },
   { path: '/aesthetic', element: <AestheticStep /> },
   { path: '/summary', element: <SummaryPage /> },
+  { path: '/about', element: <AboutPage /> },
 ];
