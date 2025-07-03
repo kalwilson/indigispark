@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useApi } from '../../context/ApiContext';
 import { useBrand } from '../../context/BrandContext.jsx';
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +10,7 @@ const PromptStep = () => {
   const { brandData, setBrandData } = useBrand();
   const { mode } = brandData;
 
+  const [brandTypes, setBrandTypes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
@@ -81,6 +82,20 @@ const PromptStep = () => {
     }
   };
 
+  useEffect(() => {
+    const getBrandTypes = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/api/prompts/brand-types`);
+        const data = await response.json();
+        setBrandTypes(data.types || []);
+      } catch (error) {
+        console.error('Failed to get all brand types', error);
+      }
+    };
+
+    getBrandTypes();
+  }, [apiUrl]);
+
   return (
     <section className="prompt-step">
       <form onSubmit={handleSubmit} className="form">
@@ -88,10 +103,28 @@ const PromptStep = () => {
 
         <label className="form__label">
           Brand Type:
-          <select name="type" value={brandData.type} onChange={handleChange}>
+          {/* <select name="type" value={brandData.type} onChange={handleChange}>
             <option value="healer">Healer</option>
             <option value="teacher">Teacher</option>
             <option value="visionary">Visionary</option>
+          </select> */}
+          <select
+            name="type"
+            value={brandData.type}
+            onChange={handleChange}
+            className="form__select"
+          >
+            {brandTypes.length === 0 ? (
+              <option value="" className="form__option">
+                Loading types...
+              </option>
+            ) : (
+              brandTypes.map((type) => (
+                <option key={type} value={type} className="form__option">
+                  {type.charAt(0).toUpperCase() + type.slice(1)}
+                </option>
+              ))
+            )}
           </select>
         </label>
 
@@ -105,14 +138,23 @@ const PromptStep = () => {
             value={brandData.purpose}
             onChange={handleChange}
           />
-          {fieldErrors.purpose && (
-            <p className="form__error-message">
-              <span className="form__error-icon" aria-hidden="true">
-                <ExclamationIcon size={16} />
-              </span>
-              {fieldErrors.purpose}
-            </p>
-          )}
+          <p
+            className={`form__error-message ${
+              fieldErrors.purpose ? 'visible' : ''
+            }`}
+            aria-live="polite"
+          >
+            {fieldErrors.purpose ? (
+              <>
+                <span className="form__error-icon" aria-hidden="true">
+                  <ExclamationIcon size={12} />
+                </span>
+                {fieldErrors.purpose}
+              </>
+            ) : (
+              '\u00A0'
+            )}
+          </p>
         </label>
 
         <label className="form__label">
@@ -125,14 +167,23 @@ const PromptStep = () => {
             value={brandData.goals}
             onChange={handleChange}
           />
-          {fieldErrors.goals && (
-            <p className="form__error-message">
-              <span className="form__error-icon" aria-hidden="true">
-                <ExclamationIcon size={16} />
-              </span>
-              {fieldErrors.goals}
-            </p>
-          )}
+          <p
+            className={`form__error-message ${
+              fieldErrors.goals ? 'visible' : ''
+            }`}
+            aria-live="polite"
+          >
+            {fieldErrors.goals ? (
+              <>
+                <span className="form__error-icon" aria-hidden="true">
+                  <ExclamationIcon size={12} />
+                </span>
+                {fieldErrors.goals}
+              </>
+            ) : (
+              '\u00A0'
+            )}
+          </p>
         </label>
 
         <label className="form__label">
@@ -145,14 +196,23 @@ const PromptStep = () => {
             value={brandData.values}
             onChange={handleChange}
           />
-          {fieldErrors.values && (
-            <p className="form__error-message">
-              <span className="form__error-icon" aria-hidden="true">
-                <ExclamationIcon size={16} />
-              </span>
-              {fieldErrors.values}
-            </p>
-          )}
+          <p
+            className={`form__error-message ${
+              fieldErrors.values ? 'visible' : ''
+            }`}
+            aria-live="polite"
+          >
+            {fieldErrors.values ? (
+              <>
+                <span className="form__error-icon" aria-hidden="true">
+                  <ExclamationIcon size={12} />
+                </span>
+                {fieldErrors.values}
+              </>
+            ) : (
+              '\u00A0'
+            )}
+          </p>
         </label>
 
         <label className="form__label">
@@ -165,14 +225,23 @@ const PromptStep = () => {
             value={brandData.audience}
             onChange={handleChange}
           />
-          {fieldErrors.audience && (
-            <p className="form__error-message">
-              <span className="form__error-icon" aria-hidden="true">
-                <ExclamationIcon size={16} />
-              </span>
-              {fieldErrors.audience}
-            </p>
-          )}
+          <p
+            className={`form__error-message ${
+              fieldErrors.audience ? 'visible' : ''
+            }`}
+            aria-live="polite"
+          >
+            {fieldErrors.audience ? (
+              <>
+                <span className="form__error-icon" aria-hidden="true">
+                  <ExclamationIcon size={12} />
+                </span>
+                {fieldErrors.audience}
+              </>
+            ) : (
+              '\u00A0'
+            )}
+          </p>
         </label>
 
         <button className="form__button" type="submit" disabled={loading}>

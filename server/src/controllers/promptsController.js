@@ -1,5 +1,30 @@
-import { getStaticSummary } from '../data/static/brandSummaries.js';
+import { brandSummaries } from '../data/static/index.js';
 import { openai } from '../utils/openai.js';
+
+export const getAllBrandTypes = (req, res) => {
+  try {
+    const types = Object.keys(brandSummaries);
+    res.json({ types });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to get all brand types.' });
+  }
+};
+
+export const getStaticSummary = (type) => {
+  if (!brandSummaries[type]) {
+    throw new Error(
+      `Invalid type: ${type}. Try one of these types: ${Object.keys(
+        brandSummaries
+      ).join(', ')}`
+    );
+  }
+
+  const summaries = brandSummaries[type];
+  return (
+    summaries[Math.floor(Math.random() * summaries.length)] ||
+    'No summary available.'
+  );
+};
 
 export const analyzePrompts = async (req, res) => {
   const { purpose, goals, values, type = 'healer', mode = 'ai' } = req.body;

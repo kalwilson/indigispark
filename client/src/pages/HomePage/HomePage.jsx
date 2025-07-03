@@ -12,9 +12,10 @@ const HomePage = () => {
   return (
     <section className="homepage">
       <h1 className="homepage__heading">Lightling Labs</h1>
+      <p className="homepage__tagline">Spark your brand's journey with care.</p>
       <p className="homepage__description">
-        Gently spark your brand's beginning. Guided tools to help Indigenous
-        creators name, shape, and style their creative identity with heart.
+        Thoughtful tools to help Indigenous creators name, shape, and share
+        their creative identity. Rooted in heart, culture, and vision.
       </p>
       <div className="homepage__mode-buttons">
         <div className="homepage__section">
@@ -49,11 +50,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
       <button onClick={() => navigate('/prompts')} className="homepage__button">
         Get Started
       </button>
-
       {showInfo && (
         <div className="homepage__info-text">
           <button

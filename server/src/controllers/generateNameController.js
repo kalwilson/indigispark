@@ -1,5 +1,21 @@
 import { openai } from '../utils/openai.js';
-import { getNamesByVibe } from '../data/static/index.js';
+import { nameSuggestions } from '../data/static/index.js';
+
+export const getNamesByVibe = (vibe, count = 3) => {
+  if (!nameSuggestions[vibe]) {
+    throw new Error(
+      `Invalid vibe: ${vibe}. Try one of these vibes: ${Object.keys(
+        nameSuggestions
+      ).join(', ')}`
+    );
+  }
+
+  const group = [...nameSuggestions[vibe]];
+  const shuffled = group.sort(() => 0.5 - Math.random());
+
+  const safeCount = Math.min(count, shuffled.length);
+  return shuffled.slice(0, safeCount);
+};
 
 export const generateName = async (req, res) => {
   const { values, audience, vibe, mode = 'ai' } = req.body;
@@ -29,6 +45,7 @@ export const generateName = async (req, res) => {
     const namesDataRaw = response.choices[0].message.content.trim().split('\n');
 
     const namesData = namesDataRaw.map((line) => {
+      // this should remove the 1. before the name in the summary...hopefully.
       return line.replace(/^\d+\.\s*/, '');
     });
 

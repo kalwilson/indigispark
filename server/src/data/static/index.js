@@ -1,7 +1,3 @@
-export { nameSuggestions, getNamesByVibe } from './nameSuggestions.js';
-export { brandSummaries, getStaticSummary } from './brandSummaries.js';
-export {
-  aestheticOptions,
-  getAestheticByMood,
-  getRandomAesthetic,
-} from './aestheticOptions.js';
+export { nameSuggestions } from './nameSuggestions.js';
+export { brandSummaries } from './brandSummaries.js';
+export { aestheticOptions } from './aestheticOptions.js';

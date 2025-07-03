@@ -1,8 +1,21 @@
 import { openai } from '../utils/openai.js';
-import {
-  getRandomAesthetic,
-  getAestheticByMood,
-} from '../data/static/index.js';
+import { aestheticOptions } from '../data/static/index.js';
+
+export const getRandomAesthetic = () => {
+  return aestheticOptions[Math.floor(Math.random() * aestheticOptions.length)];
+};
+
+export const getAestheticByMood = (mood) => {
+  const selectedAesthetic = aestheticOptions.find(
+    (aesthetic) => aesthetic.mood === mood
+  );
+
+  if (!selectedAesthetic) {
+    throw new Error(`Invalid mood: "${mood}`);
+  }
+
+  return selectedAesthetic;
+};
 
 export const getAesthetic = async (req, res) => {
   const { mood, keywords = '', mode = 'ai', staticMode = 'byMood' } = req.body;
