@@ -50,7 +50,11 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <button onClick={() => navigate('/prompts')} className="homepage__button">
+      {/* change to /brand-type here */}
+      <button
+        onClick={() => navigate('/brand-type')}
+        className="homepage__button"
+      >
         Get Started
       </button>
       {showInfo && (

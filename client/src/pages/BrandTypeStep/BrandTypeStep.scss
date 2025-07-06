@@ -1,0 +1,42 @@
+@use 'sass:color';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.brandtype {
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    gap: $space-sm;
+  }
+
+  &__button {
+    @include gradient-border(
+      3px,
+      6px,
+      linear-gradient(
+        45deg,
+        $color-accent-primary,
+        $color-accent-secondary,
+        color.adjust($color-status-info, $lightness: 20%),
+        color.adjust($color-accent-tertiary, $lightness: -10%)
+      ),
+      white
+    );
+    align-self: center;
+    min-width: fit-content;
+    width: 80%;
+    padding: 1rem 0;
+    margin: 1rem 0 1.5rem 0;
+    font-family: $font-family-accent;
+    font-size: 1.5rem;
+    font-weight: $font-weight-bold;
+    box-shadow: $shadow-medium;
+    transition: ease-in-out;
+    &:active {
+      position: relative;
+      top: 0.1rem;
+    }
+  }
+}

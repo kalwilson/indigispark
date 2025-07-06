@@ -10,7 +10,7 @@ const PromptStep = () => {
   const { brandData, setBrandData } = useBrand();
   const { mode } = brandData;
 
-  const [brandTypes, setBrandTypes] = useState([]);
+  // const [brandTypes, setBrandTypes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
@@ -82,26 +82,26 @@ const PromptStep = () => {
     }
   };
 
-  useEffect(() => {
-    const getBrandTypes = async () => {
-      try {
-        const response = await fetch(`${apiUrl}/api/prompts/brand-types`);
-        const data = await response.json();
-        setBrandTypes(data.types || []);
-      } catch (error) {
-        console.error('Failed to get all brand types', error);
-      }
-    };
+  // useEffect(() => {
+  //   const getBrandTypes = async () => {
+  //     try {
+  //       const response = await fetch(`${apiUrl}/api/prompts/brand-types`);
+  //       const data = await response.json();
+  //       setBrandTypes(data.types || []);
+  //     } catch (error) {
+  //       console.error('Failed to get all brand types', error);
+  //     }
+  //   };
 
-    getBrandTypes();
-  }, [apiUrl]);
+  //   getBrandTypes();
+  // }, [apiUrl]);
 
   return (
     <section className="prompt-step">
       <form onSubmit={handleSubmit} className="form">
         <h2 className="form__heading">Tell us about your brand</h2>
 
-        <label className="form__label">
+        {/* <label className="form__label">
           Brand Type:
           <select
             name="type"
@@ -121,21 +121,27 @@ const PromptStep = () => {
               ))
             )}
           </select>
-        </label>
+        </label> */}
 
         <label className="form__label" htmlFor="purpose">
           Purpose
-          <p className="form__hint">What motivates you to start this brand?</p>
-          <p className="form__hint">
-            Think about your roots, your why, or the change you want to make.
-          </p>
+          <details className="form__details">
+            <summary className="form__summary">
+              Need help finding your why?
+            </summary>
+            <p className="form__hint">
+              Think about what got you started — a feeling, a story, or a change
+              you want to see. This is where your heart lives. Why does this
+              brand matter to you?
+            </p>
+          </details>
           <textarea
             className={`form__textarea ${
               fieldErrors.purpose ? 'form__textarea--error' : ''
             }`}
             name="purpose"
             id="purpose"
-            placeholder="I want to create a space where Indigenous stories and voices feel seen and celebrated."
+            placeholder="I want to build something that supports my community and reflects who I am."
             value={brandData.purpose}
             onChange={handleChange}
           />
@@ -160,16 +166,22 @@ const PromptStep = () => {
 
         <label className="form__label">
           Goals
-          <p className="form__hint">What are you hoping to achieve? </p>
-          <p className="form__hint">
-            This could be personal, community-based, or business goals.
-          </p>
+          <details className="form__details">
+            <summary className="form__summary">
+              Not sure what to aim for?
+            </summary>
+            <p className="form__hint">
+              What would make this feel like a success for you? These could be
+              personal wins, creative milestones, or community impact — dream
+              big or small.
+            </p>
+          </details>
           <textarea
             className={`form__textarea ${
               fieldErrors.goals ? 'form__textarea--error' : ''
             }`}
             name="goals"
-            placeholder="Sell original artwork, grow a small community, and collaborate with other Indigenous creatives."
+            placeholder="Offer services that meet real needs, grow steadily, and make space for more freedom in my life."
             value={brandData.goals}
             onChange={handleChange}
           />
@@ -194,16 +206,22 @@ const PromptStep = () => {
 
         <label className="form__label">
           Values
-          <p className="form__hint">What values guide your brand? </p>
-          <p className="form__hint">
-            Think about the beliefs or teachings that are most important to you.
-          </p>
+          <details className="form__details">
+            <summary className="form__summary">
+              Need help uncovering your values?
+            </summary>
+            <p className="form__hint">
+              What principles guide how you show up? Think of teachings,
+              traditions, or beliefs that shape your choices — the roots beneath
+              your brand.
+            </p>
+          </details>
           <textarea
             className={`form__textarea ${
               fieldErrors.values ? 'form__textarea--error' : ''
             }`}
             name="values"
-            placeholder="Authenticity, cultural respect, reciprocity, joy, and intergenerational care."
+            placeholder="Care, transparency, community, respect for where I come from, and room for growth."
             value={brandData.values}
             onChange={handleChange}
           />
@@ -228,18 +246,22 @@ const PromptStep = () => {
 
         <label className="form__label">
           Audience
-          <p className="form__hint">
-            Who do you want to connect with or support?
-          </p>
-          <p className="form__hint">
-            Think about who your work is for and what they need.
-          </p>
+          <details className="form__details">
+            <summary className="form__summary">
+              Need help identifying your audience?
+            </summary>
+            <p className="form__hint">
+              Who are you hoping to connect with? Picture the folks who’d love
+              your work — what are they into, what do they care about, and how
+              can your brand support them?
+            </p>
+          </details>
           <textarea
             className={`form__textarea ${
               fieldErrors.audience ? 'form__textarea--error' : ''
             }`}
             name="audience"
-            placeholder="Indigenous youth and culture lovers looking for meaningful, handmade craftwork."
+            placeholder="People who want services or products that are built with care and rooted in something real."
             value={brandData.audience}
             onChange={handleChange}
           />

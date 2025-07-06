@@ -1,5 +1,6 @@
 import {
   HomePage,
+  BrandTypeStep,
   PromptStep,
   NameStep,
   AestheticStep,
@@ -9,6 +10,7 @@ import {
 
 export const routes = [
   { path: '/', element: <HomePage /> },
+  { path: '/brand-type', element: <BrandTypeStep /> },
   { path: '/prompts', element: <PromptStep /> },
   { path: '/names', element: <NameStep /> },
   { path: '/aesthetic', element: <AestheticStep /> },

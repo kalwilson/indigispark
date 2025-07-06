@@ -24,10 +24,12 @@
     margin-bottom: $space-sm;
   }
 
-  &__hint {
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
+  &__details {
+    margin-top: $space-xxs;
+    background-color: #f9f9f9;
+    border-left: 4px solid $color-primary-highlight;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
   }
 
   &__button {

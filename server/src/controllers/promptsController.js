@@ -1,35 +1,26 @@
-import { brandSummaries, brandTypeDescriptions } from '../data/static/index.js';
+import { brandTypes } from '../data/static/index.js';
 import { openai } from '../utils/openai.js';
 
 export const getAllBrandTypes = (req, res) => {
   try {
-    const types = Object.keys(brandSummaries);
-    res.json({ types });
+    res.json({ types: brandTypes });
   } catch (error) {
     res.status(500).json({ error: 'Failed to get all brand types.' });
   }
 };
 
-export const getAllBrandDescriptions = (req, res) => {
-  try {
-    res.json({ descriptions: brandTypeDescriptions });
-  } catch (error) {
-    res
-      .status(500)
-      .json({ error: 'Failed to get all brand type descriptions.' });
-  }
-};
-
 export const getStaticSummary = (type) => {
-  if (!brandSummaries[type]) {
+  const selected = brandTypes[type];
+
+  if (!selected || !selected.summaries) {
     throw new Error(
       `Invalid type: ${type}. Try one of these types: ${Object.keys(
-        brandSummaries
+        brandTypes
       ).join(', ')}`
     );
   }
 
-  const summaries = brandSummaries[type];
+  const summaries = selected.summaries;
   return (
     summaries[Math.floor(Math.random() * summaries.length)] ||
     'No summary available.'
