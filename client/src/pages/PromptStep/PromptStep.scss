@@ -24,6 +24,12 @@
     margin-bottom: $space-sm;
   }
 
+  &__hint {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
   &__button {
     @include gradient-border(
       3px,
@@ -58,7 +64,23 @@
     border: 2px solid color.adjust($color-status-info, $lightness: 5%);
     background: none;
     border-radius: $radius-sm;
-    margin: 1rem 0 0.25rem 0;
+    margin: 0.25rem 0;
+    padding: 0.25rem;
+    transition: ease-in-out;
+
+    &:focus {
+      border-radius: $radius-sm;
+      border: 2px solid #ccc;
+    }
+
+    &::placeholder {
+      color: #aaa;
+      line-height: inherit;
+    }
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
   }
 
   &__textarea--error {

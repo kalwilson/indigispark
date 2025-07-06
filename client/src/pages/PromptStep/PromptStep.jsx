@@ -103,11 +103,6 @@ const PromptStep = () => {
 
         <label className="form__label">
           Brand Type:
-          {/* <select name="type" value={brandData.type} onChange={handleChange}>
-            <option value="healer">Healer</option>
-            <option value="teacher">Teacher</option>
-            <option value="visionary">Visionary</option>
-          </select> */}
           <select
             name="type"
             value={brandData.type}
@@ -128,13 +123,19 @@ const PromptStep = () => {
           </select>
         </label>
 
-        <label className="form__label">
-          Purpose:
+        <label className="form__label" htmlFor="purpose">
+          Purpose
+          <p className="form__hint">What motivates you to start this brand?</p>
+          <p className="form__hint">
+            Think about your roots, your why, or the change you want to make.
+          </p>
           <textarea
             className={`form__textarea ${
               fieldErrors.purpose ? 'form__textarea--error' : ''
             }`}
             name="purpose"
+            id="purpose"
+            placeholder="I want to create a space where Indigenous stories and voices feel seen and celebrated."
             value={brandData.purpose}
             onChange={handleChange}
           />
@@ -158,12 +159,17 @@ const PromptStep = () => {
         </label>
 
         <label className="form__label">
-          Goals:
+          Goals
+          <p className="form__hint">What are you hoping to achieve? </p>
+          <p className="form__hint">
+            This could be personal, community-based, or business goals.
+          </p>
           <textarea
             className={`form__textarea ${
               fieldErrors.goals ? 'form__textarea--error' : ''
             }`}
             name="goals"
+            placeholder="Sell original artwork, grow a small community, and collaborate with other Indigenous creatives."
             value={brandData.goals}
             onChange={handleChange}
           />
@@ -187,12 +193,17 @@ const PromptStep = () => {
         </label>
 
         <label className="form__label">
-          Values:
+          Values
+          <p className="form__hint">What values guide your brand? </p>
+          <p className="form__hint">
+            Think about the beliefs or teachings that are most important to you.
+          </p>
           <textarea
             className={`form__textarea ${
               fieldErrors.values ? 'form__textarea--error' : ''
             }`}
             name="values"
+            placeholder="Authenticity, cultural respect, reciprocity, joy, and intergenerational care."
             value={brandData.values}
             onChange={handleChange}
           />
@@ -216,12 +227,19 @@ const PromptStep = () => {
         </label>
 
         <label className="form__label">
-          Audience:
+          Audience
+          <p className="form__hint">
+            Who do you want to connect with or support?
+          </p>
+          <p className="form__hint">
+            Think about who your work is for and what they need.
+          </p>
           <textarea
             className={`form__textarea ${
               fieldErrors.audience ? 'form__textarea--error' : ''
             }`}
             name="audience"
+            placeholder="Indigenous youth and culture lovers looking for meaningful, handmade craftwork."
             value={brandData.audience}
             onChange={handleChange}
           />

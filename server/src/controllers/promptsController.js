@@ -1,4 +1,4 @@
-import { brandSummaries } from '../data/static/index.js';
+import { brandSummaries, brandTypeDescriptions } from '../data/static/index.js';
 import { openai } from '../utils/openai.js';
 
 export const getAllBrandTypes = (req, res) => {
@@ -7,6 +7,16 @@ export const getAllBrandTypes = (req, res) => {
     res.json({ types });
   } catch (error) {
     res.status(500).json({ error: 'Failed to get all brand types.' });
+  }
+};
+
+export const getAllBrandDescriptions = (req, res) => {
+  try {
+    res.json({ descriptions: brandTypeDescriptions });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: 'Failed to get all brand type descriptions.' });
   }
 };
 

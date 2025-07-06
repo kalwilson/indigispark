@@ -35,11 +35,11 @@ export const brandSummaries = {
     'Your brand is a shield, a bundle, a sacred promise.',
     'You protect what matters. Your brand holds boundary and grace.',
     'A guardian’s brand is quiet and firm — a soft voice with strong roots.',
-    'You make space safe. Your brand reminds others they belong.',
+    'You make sspace safe. Your brand reminds others they belong.',
     'Your presence steadies the circle. Your brand reflects that gentle strength.',
   ],
 
-  sparkkeeper: [
+  'spark-keeper': [
     'You carry sparks — story, laughter, vision — and light the way.',
     'A sparkkeeper’s brand surprises. It dances, glows, and invites.',
     'You offer flickers of joy, connection, and wonder.',
@@ -55,19 +55,3 @@ export const brandSummaries = {
     'Your presence sparks questioning. Your brand doesn’t explain — it invites.',
   ],
 };
-
-// export const getStaticSummary = (type) => {
-//   if (!brandSummaries[type]) {
-//     throw new Error(
-//       `Invalid type: ${type}. Try one of these types: ${Object.keys(
-//         brandSummaries
-//       ).join(', ')}`
-//     );
-//   }
-
-//   const summaries = brandSummaries[type];
-//   return (
-//     summaries[Math.floor(Math.random() * summaries.length)] ||
-//     'No summary available.'
-//   );
-// };
