@@ -19,17 +19,17 @@ Lightling Labs is a full-stack application currently in development as part of m
 
 ---
 
-## 📸 Screenshots
+##  Screenshots 📸
 
-### 🌱 Welcome Screen
+###  Welcome Screen
 
 ![Lightling Labs welcome screen](./screenshots/lightling-screenshot-1.png)
 
-### 🛤️ Brand Type Selection
+### Brand Type Selection
 
 ![Brand path selection page](./screenshots/lightling-screenshot-2.png)
 
-### 🎨 Aesthetic Summary
+### Aesthetic Summary
 
 ![Generated aesthetic preview](./screenshots/lightling-screenshot-3.png)
 
