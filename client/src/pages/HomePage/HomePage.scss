@@ -1,0 +1,138 @@
+@use 'sass:color';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.homepage {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  &__logo {
+    width: 5rem;
+    height: auto;
+    padding: $space-xs 0;
+    margin: 0;
+
+    @include mq(tablet) {
+      width: 7rem;
+      padding: $space-xs 0;
+    }
+  }
+  &__heading {
+    margin: 0;
+  }
+
+  &__tagline {
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 0;
+    color: $color-link;
+  }
+
+  &__label {
+    text-align: center;
+  }
+
+  &__info-text {
+    min-width: 21rem;
+    min-height: 10rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    border: 3px solid $color-status-info;
+    padding: 0.5rem 1rem 1rem 1rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $color-primary-light;
+    opacity: 0.95;
+    box-shadow: $shadow-medium;
+    z-index: 9999;
+  }
+
+  &__info-button {
+    align-self: flex-end;
+    padding-bottom: 0;
+    position: relative;
+    top: 0.15rem;
+    left: 0.2rem;
+  }
+
+  &__info-description {
+    font-size: 1.25rem;
+    margin: 0.5rem 0 0.5rem 0;
+    text-align: justify;
+  }
+
+  &__info-description--bold {
+    font-weight: $font-weight-bold;
+    padding-right: 0.75rem;
+  }
+
+  &__button-group {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+
+    @include mq(tablet) {
+      flex-flow: row nowrap;
+    }
+  }
+
+  &__mode-button {
+    // width: calc(50% - 1rem);
+    width: 100%;
+    padding: 0.5rem;
+    opacity: 0.5;
+    line-height: 1.5;
+    @include gradient-border-bottom(3px);
+    @include button-shadow;
+    margin-bottom: $space-lg;
+    transition: ease-in-out;
+
+    &.is-active {
+      opacity: 1;
+      font-weight: $font-weight-bold;
+      font-size: 1.25rem;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    @include mq(tablet) {
+      width: calc(50% - 1rem);
+    }
+  }
+
+  &__button {
+    @include button-shadow;
+    @include gradient-border(
+      3px,
+      6px,
+      linear-gradient(
+        45deg,
+        $color-accent-primary,
+        $color-accent-secondary,
+        color.adjust($color-status-info, $lightness: 20%),
+        color.adjust($color-accent-tertiary, $lightness: -10%)
+      ),
+      white
+    );
+    align-self: center;
+    min-width: fit-content;
+    width: 80%;
+    padding: 1rem 0;
+    font-family: $font-family-accent;
+    font-size: 1.5rem;
+    font-weight: $font-weight-bold;
+    transition: ease-in-out;
+    &:active {
+      position: relative;
+      top: 0.1rem;
+    }
+  }
+}

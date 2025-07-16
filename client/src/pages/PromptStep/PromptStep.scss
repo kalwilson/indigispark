@@ -1,0 +1,116 @@
+@use 'sass:color';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.prompt-step {
+  width: 100%;
+  display: block;
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  gap: $space-sm;
+
+  &__heading {
+    margin-bottom: $space-sm;
+  }
+
+  &__label {
+    display: flex;
+    flex-flow: column nowrap;
+    font-weight: $font-weight-bold;
+    margin-bottom: $space-sm;
+  }
+
+  &__details {
+    margin-top: $space-xxs;
+    background-color: #f9f9f9;
+    border-left: 4px solid $color-primary-highlight;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  &__button {
+    @include gradient-border(
+      3px,
+      6px,
+      linear-gradient(
+        45deg,
+        $color-accent-primary,
+        $color-accent-secondary,
+        color.adjust($color-status-info, $lightness: 20%),
+        color.adjust($color-accent-tertiary, $lightness: -10%)
+      ),
+      white
+    );
+    align-self: center;
+    min-width: fit-content;
+    width: 80%;
+    padding: 1rem 0;
+    margin: 1rem 0 1.5rem 0;
+    font-family: $font-family-accent;
+    font-size: 1.5rem;
+    font-weight: $font-weight-bold;
+    box-shadow: $shadow-medium;
+    transition: ease-in-out;
+    &:active {
+      position: relative;
+      top: 0.1rem;
+    }
+  }
+
+  &__textarea {
+    resize: none;
+    border: 2px solid color.adjust($color-status-info, $lightness: 5%);
+    background: none;
+    border-radius: $radius-sm;
+    margin: 0.25rem 0;
+    padding: 0.25rem;
+    transition: ease-in-out;
+
+    &:focus {
+      border-radius: $radius-sm;
+      border: 2px solid #ccc;
+    }
+
+    &::placeholder {
+      color: #aaa;
+      line-height: inherit;
+    }
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
+  }
+
+  &__textarea--error {
+    @extend .form__textarea;
+    border: 2px solid $color-status-error;
+    background: $color-status-error-bg;
+
+    &:focus {
+      @extend .form__textarea;
+    }
+  }
+
+  &__error-message {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.75rem;
+    color: $color-status-error;
+    font-weight: $font-weight-bold;
+    gap: 0.25rem;
+    margin-top: 0;
+    padding-left: 0.15rem;
+    min-height: 1rem;
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+}

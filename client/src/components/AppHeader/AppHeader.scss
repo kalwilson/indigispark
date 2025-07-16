@@ -1,0 +1,57 @@
+@use '../../styles/partials/variables' as *;
+
+.site-header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  padding: 0 2rem;
+}
+
+.site-nav {
+  display: block;
+  width: 100%;
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &__item {
+    align-self: center;
+  }
+
+  &__item--end {
+    @extend .site-nav__item;
+    margin-left: auto;
+  }
+
+  &__link {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: $space-xxs;
+    text-decoration: none;
+    color: $color-status-info;
+    font-variant: small-caps;
+    font-weight: $font-weight-bold;
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+    &:visited {
+      color: $color-status-info;
+    }
+  }
+}
