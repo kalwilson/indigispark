@@ -1,0 +1,22 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use 'sass:color';
+
+.about {
+  display: block;
+
+  &__banner {
+    width: 100%;
+    // height: 15rem;
+    height: 7rem;
+    object-fit: cover;
+    object-position: center 15%;
+    opacity: 0.85;
+    border-left: 5px solid
+      color.adjust($color-primary-highlight, $lightness: 30%);
+
+    @include mq(tablet) {
+      height: 10rem;
+    }
+  }
+}

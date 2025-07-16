@@ -35,7 +35,7 @@ const SummaryPage = () => {
       <p>Values: {brandData.values}</p>
       <p>Audience: {brandData.audience}</p>
       <p>Summary: {summary}</p>
-      <p>Aesthetic: {aesthetic?.mood}</p>
+      <p>Aesthetic: {aesthetic?.name}</p>
       <p>{aesthetic?.vibe}</p>
       <p>Colors:</p>
       {aesthetic?.colors.map((color, i) => (

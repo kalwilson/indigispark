@@ -41,6 +41,15 @@
     color: $color-status-info;
     font-variant: small-caps;
     font-weight: $font-weight-bold;
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
     &:visited {
       color: $color-status-info;
     }

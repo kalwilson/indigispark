@@ -49,7 +49,7 @@ export const brandTypes = {
       'Your brand is a shield, a bundle, a sacred promise.',
       'You protect what matters. Your brand holds boundary and grace.',
       'A guardian’s brand is quiet and firm — a soft voice with strong roots.',
-      'You make sspace safe. Your brand reminds others they belong.',
+      'You make space safe. Your brand reminds others they belong.',
       'Your presence steadies the circle. Your brand reflects that gentle strength.',
     ],
   },

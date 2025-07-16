@@ -3,12 +3,73 @@
 @use '../../styles/partials/mixins' as *;
 
 .brandtype {
+  &__section {
+    display: block;
+    width: 100%;
+  }
   &__form {
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     gap: $space-sm;
+  }
+
+  &__tagline {
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 0;
+    color: $color-link;
+  }
+
+  &__details {
+    background-color: #f9f9f9;
+    border-left: 4px solid $color-primary-highlight;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  &__types {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    margin: 0 auto;
+    column-gap: $space-md;
+    row-gap: $space-md;
+
+    @include mq(tablet) {
+      flex-flow: row wrap;
+    }
+  }
+
+  &__type {
+    // width: calc(33% - 0.5rem);
+    width: 100%;
+    padding: $space-lg;
+    border: 3px solid $color-primary-neutral;
+    border-radius: $radius-sm;
+    font-weight: $font-weight-bold;
+    transition: 0.25s ease-in-out;
+    @include button-shadow;
+
+    &:hover {
+      border-color: color.adjust($color-accent-tertiary, $lightness: -10%);
+    }
+
+    @include mq(tablet) {
+      width: calc(50% - 1rem);
+    }
+
+    @include mq(desktop) {
+      width: calc(33.33% - 1rem);
+    }
+
+    &--selected {
+      border-color: color.adjust($color-accent-tertiary, $lightness: -10%);
+      background-color: $color-accent-tertiary;
+    }
   }
 
   &__button {
@@ -32,8 +93,8 @@
     font-family: $font-family-accent;
     font-size: 1.5rem;
     font-weight: $font-weight-bold;
-    box-shadow: $shadow-medium;
-    transition: ease-in-out;
+
+    transition: 0.2s ease-in-out;
     &:active {
       position: relative;
       top: 0.1rem;

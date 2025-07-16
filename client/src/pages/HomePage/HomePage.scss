@@ -7,6 +7,17 @@
   flex-flow: column nowrap;
   justify-content: center;
 
+  &__logo {
+    width: 5rem;
+    height: auto;
+    padding: $space-xs 0;
+    margin: 0;
+
+    @include mq(tablet) {
+      width: 7rem;
+      padding: $space-xs 0;
+    }
+  }
   &__heading {
     margin: 0;
   }
@@ -61,18 +72,24 @@
 
   &__button-group {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: center;
     gap: 1rem;
     margin: 1rem 0;
+
+    @include mq(tablet) {
+      flex-flow: row nowrap;
+    }
   }
 
   &__mode-button {
-    width: calc(50% - 1rem);
+    // width: calc(50% - 1rem);
+    width: 100%;
     padding: 0.5rem;
     opacity: 0.5;
     line-height: 1.5;
     @include gradient-border-bottom(3px);
+    @include button-shadow;
     margin-bottom: $space-lg;
     transition: ease-in-out;
 
@@ -85,9 +102,14 @@
     &:hover {
       opacity: 0.9;
     }
+
+    @include mq(tablet) {
+      width: calc(50% - 1rem);
+    }
   }
 
   &__button {
+    @include button-shadow;
     @include gradient-border(
       3px,
       6px,
@@ -107,7 +129,6 @@
     font-family: $font-family-accent;
     font-size: 1.5rem;
     font-weight: $font-weight-bold;
-    box-shadow: $shadow-medium;
     transition: ease-in-out;
     &:active {
       position: relative;

@@ -117,3 +117,16 @@
     border-bottom-right-radius: 6px;
   }
 }
+
+@mixin button-shadow {
+  box-shadow: $shadow-light;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: $shadow-medium;
+  }
+
+  &:active {
+    box-shadow: $shadow-medium;
+  }
+}

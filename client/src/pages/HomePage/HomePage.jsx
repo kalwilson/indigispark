@@ -11,7 +11,12 @@ const HomePage = () => {
 
   return (
     <section className="homepage">
-      <h1 className="homepage__heading">Lightling Labs</h1>
+      {/* <img
+        src="src/assets/Images/lightling-labs-logo.png"
+        alt=""
+        className="homepage__logo"
+      />{' '} */}
+      <h1 className="homepage__heading">Lightling Labs </h1>
       <p className="homepage__tagline">Spark your brand's journey with care.</p>
       <p className="homepage__description">
         Thoughtful tools to help Indigenous creators name, shape, and share
